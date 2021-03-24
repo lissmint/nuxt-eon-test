@@ -43,6 +43,7 @@ export default {
 .categories
   display: flex
   &__option
+    cursor: pointer
     flex: 1
     padding: 1.1875rem .2rem
     border-radius: 2.0625rem
@@ -58,4 +59,12 @@ export default {
       background-size: 100%
     input
       display: none
+  @media screen and (max-width: 450px)
+    flex-direction: column
+    flex-wrap: wrap
+    &__option
+      width: 100%
+      padding: .7rem .2rem
+      &:not(:last-child)
+        margin: 0 0 1rem
 </style>

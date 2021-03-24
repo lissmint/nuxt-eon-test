@@ -41,11 +41,19 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    '@nuxtjs/proxy',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    baseURL: 'eon.estate/api/v0',
+    proxy: true,
+  },
+
+  proxy: {
+    '/api': {
+      target: 'http://eon.estate/api/v0',
+      pathRewrite: { '^/api': '' },
+    },
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
